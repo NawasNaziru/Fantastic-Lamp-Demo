@@ -1,13 +1,17 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
-st.set_page_config(page_title="Fantastic Lamp Demo", layout="wide")
+st.set_page_config(page_title="Watsonx Orchestrate Agent Demo", layout="wide")
 
-st.title("🤖 Browse Safely")
+st.title("🤖 Test My Watsonx Orchestrate Agent")
 
-# Embed the agent using HTML + JS snippet
-st.markdown("""
-<div id="root"></div>
-<script>
+# Embed the Watsonx Orchestrate agent widget
+components.html("""
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+    <script>
   window.wxOConfiguration = {
     orchestrationID: "dddbacdbb6c243a3bbe53662be8d492b_7b56ddcd-731f-4711-892f-a4f2577bb280",
     hostURL: "https://eu-gb.watson-orchestrate.cloud.ibm.com",
@@ -27,4 +31,6 @@ st.markdown("""
     document.head.appendChild(script);
   }, 0);                     
 </script>
-""", unsafe_allow_html=True)
+  </body>
+</html>
+""", height=700, scrolling=True)
